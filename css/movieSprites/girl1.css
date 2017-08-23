@@ -1,0 +1,293 @@
+/* glue: 0.11.1 hash: d8fbd47405 */
+        .sprite-icons-girl19,
+.sprite-icons-girl18,
+.sprite-icons-girl17,
+.sprite-icons-girl16,
+.sprite-icons-girl15,
+.sprite-icons-girl14,
+.sprite-icons-girl135,
+.sprite-icons-girl134,
+.sprite-icons-girl133,
+.sprite-icons-girl132,
+.sprite-icons-girl131,
+.sprite-icons-girl130,
+.sprite-icons-girl13,
+.sprite-icons-girl129,
+.sprite-icons-girl128,
+.sprite-icons-girl127,
+.sprite-icons-girl126,
+.sprite-icons-girl125,
+.sprite-icons-girl124,
+.sprite-icons-girl123,
+.sprite-icons-girl122,
+.sprite-icons-girl121,
+.sprite-icons-girl120,
+.sprite-icons-girl12,
+.sprite-icons-girl119,
+.sprite-icons-girl118,
+.sprite-icons-girl117,
+.sprite-icons-girl116,
+.sprite-icons-girl115,
+.sprite-icons-girl114,
+.sprite-icons-girl113,
+.sprite-icons-girl112,
+.sprite-icons-girl111,
+.sprite-icons-girl110,
+.sprite-icons-girl11 {
+            background-image: url('../../img/movieSprites/girl1.png');
+            background-repeat: no-repeat;
+        }
+        
+        .sprite-icons-girl19 {
+            background-position: 0 0;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl18 {
+            background-position: -60px 0;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl17 {
+            background-position: -120px 0;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl16 {
+            background-position: -180px 0;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl15 {
+            background-position: 0 -100px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl14 {
+            background-position: -60px -100px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl135 {
+            background-position: -120px -100px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl134 {
+            background-position: -180px -100px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl133 {
+            background-position: -240px 0;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl132 {
+            background-position: -240px -100px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl131 {
+            background-position: 0 -200px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl130 {
+            background-position: -60px -200px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl13 {
+            background-position: -120px -200px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl129 {
+            background-position: -180px -200px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl128 {
+            background-position: -240px -200px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl127 {
+            background-position: -300px 0;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl126 {
+            background-position: -300px -100px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl125 {
+            background-position: -300px -200px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl124 {
+            background-position: -360px 0;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl123 {
+            background-position: -360px -100px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl122 {
+            background-position: -360px -200px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl121 {
+            background-position: 0 -300px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl120 {
+            background-position: -60px -300px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl12 {
+            background-position: -120px -300px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl119 {
+            background-position: -180px -300px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl118 {
+            background-position: -240px -300px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl117 {
+            background-position: -300px -300px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl116 {
+            background-position: -360px -300px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl115 {
+            background-position: -420px 0;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl114 {
+            background-position: -420px -100px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl113 {
+            background-position: -420px -200px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl112 {
+            background-position: -420px -300px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl111 {
+            background-position: -480px 0;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl110 {
+            background-position: -480px -100px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        .sprite-icons-girl11 {
+            background-position: -480px -200px;
+            width: 60px;
+            height: 100px;
+        }
+        
+        @media screen and (-webkit-min-device-pixel-ratio: 1.0), screen and (min--moz-device-pixel-ratio: 1.0), screen and (-o-min-device-pixel-ratio: 100/100), screen and (min-device-pixel-ratio: 1.0), screen and (min-resolution: 1.0dppx) {
+            .sprite-icons-girl19,
+    .sprite-icons-girl18,
+    .sprite-icons-girl17,
+    .sprite-icons-girl16,
+    .sprite-icons-girl15,
+    .sprite-icons-girl14,
+    .sprite-icons-girl135,
+    .sprite-icons-girl134,
+    .sprite-icons-girl133,
+    .sprite-icons-girl132,
+    .sprite-icons-girl131,
+    .sprite-icons-girl130,
+    .sprite-icons-girl13,
+    .sprite-icons-girl129,
+    .sprite-icons-girl128,
+    .sprite-icons-girl127,
+    .sprite-icons-girl126,
+    .sprite-icons-girl125,
+    .sprite-icons-girl124,
+    .sprite-icons-girl123,
+    .sprite-icons-girl122,
+    .sprite-icons-girl121,
+    .sprite-icons-girl120,
+    .sprite-icons-girl12,
+    .sprite-icons-girl119,
+    .sprite-icons-girl118,
+    .sprite-icons-girl117,
+    .sprite-icons-girl116,
+    .sprite-icons-girl115,
+    .sprite-icons-girl114,
+    .sprite-icons-girl113,
+    .sprite-icons-girl112,
+    .sprite-icons-girl111,
+    .sprite-icons-girl110,
+    .sprite-icons-girl11 {
+                background-image: url('../../img/movieSprites/girl1.png');
+                -webkit-background-size: 540px 400px;
+                -moz-background-size: 540px 400px;
+                background-size: 540px 400px;
+            }
+        }
+        

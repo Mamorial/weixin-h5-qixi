@@ -1,0 +1,294 @@
+<!DOCTYPE HTML>
+<html oncontextmenu="doNothing()">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 user-scalable=no" />
+  <!-- 删除默认的苹果工具栏和菜单栏 ： 即启用 WebApp 全屏模式  -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <!-- 在web app应用下状态条（屏幕顶部条）的颜色；默认值为default（白色），可以定为black（黑色）和black-translucent（灰色半透明）若值为“black-translucent”将会占据页面px位置，浮在页面上方（会覆盖页面20px高度–iphone4和itouch4的Retina屏幕为40px）。 -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <!-- 忽略数字自动识别为电话号码 ,忽略识别邮箱 -->
+  <meta name="format-detection" content="telephone=no, email=no" />
+  <!-- 启用360浏览器的极速模式(webkit) -->
+  <meta name="renderer" content="webkit">
+  <!-- 避免IE使用兼容模式 -->
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- uc强制竖屏 -->
+  <meta name="screen-orientation" content="portrait" />
+  <!-- QQ强制竖屏 -->
+  <meta name="x5-orientation" content="portrait">
+  <!-- UC强制全屏 -->
+  <meta name="full-screen" content="true" />
+  <!-- QQ强制全屏 -->
+  <meta name="x5-fullscreen" content="true" />
+  <!-- 360强制全屏 -->
+  <meta name="360-fullscreen" content="true" />
+  <!-- 关键字信息 -->
+  <meta name="keywords" content="本邦科技,www.benbun.com" />
+
+  <!-- 作者信息 -->
+  <META name="author" content="本邦科技,www.benbun.com">
+  <!-- 简介，用来告诉搜索引擎你的网站主要内容。 -->
+  <META name="description" content="本邦科技,www.benbun.com">
+  <title>杜杜真心话树洞</title>
+  <!-- build:js js/fontbase.js -->
+  <script src="js/fontbase.js"></script>
+  <!-- endbuild -->
+  <!-- 解释：build用来构架项目时候压缩代码 -->
+  <!-- build:css css/main.css -->
+  <link href="css/common.css" rel="stylesheet" />
+  <link href="css/anim.css" rel="stylesheet" />
+  <!-- 将所有的keyframes写在这里，方便复用 -->
+  <link href="css/index.css" rel="stylesheet" />
+  <link href="css/cssloader.css" rel="stylesheet" />
+  <link href="css/movieSprites/girl1.css" rel="stylesheet" />
+  <script type="text/javascript">
+//	document.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe7f8cddc17829dde&redirect_uri=http%3A%2F%2Fprod.didadiandan.com%2Fprod1%2F&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect'
+  </script>
+  <script type="text/javascript">
+  function doNothing() {
+    window.event.returnValue = false;
+    return false;
+  }
+  </script>
+  <script type="text/javascript">
+  var _smq = _smq || [];
+
+  _smq.push(['_setAccount', '1830f7f', new Date()]);
+  _smq.push(['pageview']);
+
+  (function() {
+    var sm = document.createElement('script');
+    sm.type = 'text/javascript';
+    sm.async = true;
+    sm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdnmaster.com/sitemaster/collect.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(sm, s);
+  })();
+  </script>
+  <script type="text/javascript">
+  //GA
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29156015-1']);
+  _gaq.push(['_addOrganic', 'soso', 'w']);
+  _gaq.push(['_addOrganic', 'sogou', 'query']);
+  _gaq.push(['_addOrganic', 'yodao', 'q']);
+  _gaq.push(['_trackPageview']);
+
+  </script>
+</head>
+
+<body oncontextmenu="doNothing()">
+  <!-- 如果是在微信里运行，在页面的最上方放一张隐藏的图片，作为默认的分享图片 -->
+  <div style="display:none;">
+    <img src="img/share.jpg">
+  </div>
+  <!-- loading -->
+  <div class="page p0">
+    <img src="img/Loading-flower.png" alt="" class="loading-flower">
+    <img src="img/yuyin1.png" alt="" class="yuyin1">
+    <img src="img/yuyin2.png" alt="" class="yuyin2">
+    <img src="img/yuyin3.png" alt="" class="yuyin3">
+    <img src="img/yuyin4.png" alt="" class="yuyin4">
+    <!-- <div class="p0-loading">
+      <div class=" ball-clip-rotate-pulse ">
+        <div class=""></div>
+        <div class=""></div>
+      </div>
+    </div> -->
+    <!-- <p class="p0-process">0%</p> -->
+
+  </div>
+  <!-- 第1页 -->
+  <div class="page p1">
+    <div class="content c-rule">
+      <img src="img/rule.png" alt="" class="rule">
+      <img src="img/rule-btn.png" alt="" class="rule-btn confirm">
+    </div>
+    <div class="content c-logo">
+      <img src="img/logo.png" alt="" class="logo">
+      <img src="img/enter-down.png" alt="" class="enter-down">
+      <img src="img/enter.png" alt="" class="enter">
+    </div>
+
+    <div id="testCode"></div>
+    <div id="testAccess_token"></div>
+    <div class="user-award ds-none" onclick="getMyPrize()">
+    	<img src="img/myPrize.png" />
+    </div>
+  </div>
+  <!-- 第2页 -->
+  <div class="page p2">
+    <div class="girl1 sprites"></div>
+    <div class="girl2 sprites"></div>
+    <div class="girl3 sprites"></div>
+    <div class="girl4 sprites"></div>
+    <div class="boy1 sprites"></div>
+    <div class="boy2 sprites"></div>
+    <div class="boy3 sprites"></div>
+    <div class="wrap" id="wrap">
+      <div class="cont-box" id="cont-box">
+        <div class="ajax-loading">
+          <div class="line-spin-fade-loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div class="cont">
+        <!--头部图片-->
+          <img src="img/head.jpg" alt="" class="head">
+        </div>
+        <div class="cont" id="first-cont">
+
+
+
+          <img src="img/flower1.png" alt="" class="flower1">
+          <img src="img/flower2.png" alt="" class="flower2">
+          <img src="img/flower3.png" alt="" class="flower3">
+          <img src="img/flower4.png" alt="" class="flower4">
+          <img src="img/flower2.png" alt="" class="flower5">
+          <!--body 图片-->
+          <img src="img/body.jpg" alt="" class="body">
+        </div>
+        <!-- <div class="cont">
+          <img src="img/root.jpg" alt="" class="root">
+        </div> -->
+      </div>
+      <img src="img/share-entrance.png" alt="" class="share-entrance">
+      <img src="img/real-perfume.png" alt="" class="real-perfume">
+      <!--<img src="img/myAwards.png" alt="" onclick="getMyPrize()" class="real-myawards">-->
+      <img src="img/onland.png" alt="" class="onland">
+      <img src="img/slide-text.png" alt="" class="slide-text">
+      <img src="img/slide-pointer.png" alt="" class="slide-pointer">
+    </div>
+    <div class="wrap p2-2 branch">
+      <img src="img/upload.png" alt="" class="upload">
+      <img src="img/say-again.png" alt="" class="say-again">
+      <img src="img/listen.png" alt="" class="listen">
+      <div class="record-right listen-local">
+        <div class="time">10"</div>
+      </div>
+    </div>
+    <div class="wrap p2-1 branch">
+      <img src="img/luyin.png" alt="" class="luyin">
+      <div class="start-record"></div>
+      <img src="img/record-tip.png" alt="" class="record-tip">
+      <!-- <img src="img/start-record.png" alt="" class="start-record"> -->
+    </div>
+
+  </div>
+  <!-- 电商弹框 -->
+  <div class="dialog d-dianshang">
+    <div class="dianshang-box ab-c">
+    	<div class="award_info">
+    		<p>恭喜你获得 <span id="content_level"></span></p>
+    		<p id="content_htm"></p>
+    	</div>
+    	<div id="qrcode"></div>
+      <img src="img/prize.png" class="bg-dianshang">
+      <img src="img/clickDraw.png" class="ineedperfume">
+      <img src="img/RDcode.png" class="shengchengerweima">
+      <img src="img/btn-close.png" class="close">
+    </div>
+  </div>
+  <div class="dialog d-loading">
+    <div class="loading-div ab-c"></div>
+  </div>
+  <div class="dialog d-share">
+    <img src="img/sharehint.png" class="sharehint">
+  </div>
+  <audio src="" class="player" autoplay></audio>
+  <div class="gif-box" style="display: none;">
+    <img src="img/record-left.gif" alt="">
+    <img src="img/record-right.gif" alt="">
+  </div>
+  <div class="log"></div>
+
+  <script>
+  var app = window.app || {
+    currentPage: 0,
+    root: '',
+    user_uuid: '',
+    pages: {},
+    dialogs: {},
+    audios: {},
+    common: {},
+    postUrl: 'http://106.14.28.145:8207',
+    isMultiLoad: true, //是否分步加载
+  };
+  </script>
+  <!-- <script src="http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script> -->
+  <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/jquery.touchswipe/1.6.15/jquery.touchSwipe.min.js"></script>
+	<!--  生成二维码-->
+	<script type="text/javascript" src="js/qrcode.js"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+  <!-- 微信分享配置文件 -->
+  <script src='js/wxshare.js'></script>
+  <!-- build:js js/lib.js -->
+  <!-- lib目录下的js文件写在这里 -->
+  <!-- endbuild -->
+  <!-- build:js js/main.js -->
+  <!-- 强制竖屏 -->
+  <script src='js/landscape.js'></script>
+  <!-- 微信录音api -->
+  <script src='js/voice-api.js?v=1'></script>
+  <!--平滑滚动插件  -->
+  <!-- <script src='js/iscroll.js'></script> -->
+  <!--平滑滚动插件  -->
+  <script src="js/iscroll-probe.js"></script>
+  <!-- 阻止iphone和ipad在上下互动页面是页面移动 -->
+  <script src='js/scroll.js'></script>
+  <!-- 帧动画 -->
+  <script src="js/MovieSprites.js"></script>
+  <!-- 帧动画配置 -->
+  <script src="js/MovieSpritesConfig.js"></script>
+  <!-- 分步加载图片的插件 -->
+  <script src="js/loader.js"></script>
+  <!-- 音频相关 -->
+  <script src="js/ip.audios.js"></script>
+  <!-- 背景音乐相关 -->
+  <script src="js/ip.bgm.js"></script>
+  <!-- 主要定义页面切换 -->
+  <script src="js/app.js"></script>
+  <!-- app.dialog对象，只有一个初始化方法 -->
+  <script src="js/dialog.js"></script>
+  <!-- 定义网页中用的到一些公共方法 -->
+  <script src="js/common.js"></script>
+  <!-- 主js文件，用于页面的整体配置 -->
+  <script src="js/index.js"></script>
+  <script type="text/javascript">
+  (function() {
+    // 电商
+    app.link = 'http://prod.didadiandan.com/prod1/';
+    window.wxshare.config({
+      title: '分享秘密也偷听秘密',
+      desc: '已经偷听了20个人的真心话，完全无法自拔',
+      link: app.link,
+      imgUrl: app.link + 'img/share.jpg'
+    });
+//		var state = sessionStorage.getItem('state');
+//		alert(state);
+//		if(state) {
+//			$(".user-award").removeClass('ds-none');
+//		}
+  })()
+
+  </script>
+  <script src="js/p1.js"></script>
+  <script src="js/p2.js"></script>
+  <script src="js/p3.js"></script>
+  <script src="js/authoriza.js" type="text/javascript" charset="utf-8"></script>
+  <!-- endbuild -->
+</body>
+
+</html>
