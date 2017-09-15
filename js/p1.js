@@ -16,19 +16,30 @@ app.pages[1] = (function() {
     $('.p1-btn-alert').click(function() {
       app.showDialog('share');
     });
-
-    $('.rule-btn.confirm').click(function() {
+			//进入第二页
+    $('.confirm').click(function() {
       app.showPage(2, 1);
       // $('.listen-local').fadeOut(500);
     });
 
-    $('.logo').click(function() {
+//  $('.logo').click(function() {
+//    $('.c-logo').fadeOut(500);
+//    $('.c-rule').fadeIn(500);
+//    window._hmt && window._hmt.push(['_trackEvent', 'DurexFY17真心话树洞', '首页', '开始']);
+//    _smq.push(['custom','DurexFY17真心话树洞','首页','开始']);
+//    _gaq.push(['_trackEvent','DurexFY17真心话树洞','首页','开始']);
+//  })
+		//进入规则页面
+    $('.c-logo').click(function() {
       $('.c-logo').fadeOut(500);
       $('.c-rule').fadeIn(500);
-      window._hmt && window._hmt.push(['_trackEvent', 'DurexFY17真心话树洞', '首页', '开始']);
-      _smq.push(['custom','DurexFY17真心话树洞','首页','开始']);
-      _gaq.push(['_trackEvent','DurexFY17真心话树洞','首页','开始']);
     })
+    //进入想要聆听页面
+    $('.type').click(function() {
+      $('.c-rule').fadeOut(500);
+      $('.c-type').fadeIn(500);
+    })
+
   }
 
 
