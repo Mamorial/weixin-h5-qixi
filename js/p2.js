@@ -87,9 +87,14 @@ app.pages[2] = (function() {
 			});
     	app.showDialog('myawards');
     });
+<<<<<<< HEAD
     //开始录音
     $('.start-record').on('touchstart', function(e) {
 			$(".luyinDivD").removeClass('ds-none');
+=======
+    $('.start-record').on('touchstart', function(e) {
+
+>>>>>>> c65faae30c4fa9e6142996647303baaa24d3eb46
     	$('.luyin').removeClass('ds-none').addClass('luyin2');
 //  	if($('.luyin').hasClass('ds-none')) {
 //  		$('.pre_luyin').removeClass('ds-none').attr('src', 'img/count_down.gif');
@@ -124,8 +129,11 @@ app.pages[2] = (function() {
 
     $('.start-record').on('touchend', function() {
     	$('.luyin').removeClass('luyin2').addClass('ds-none');
+<<<<<<< HEAD
     	$(".luyinListen").removeClass('ds-none');
     	$(".luyinDivD").addClass('ds-none');
+=======
+>>>>>>> c65faae30c4fa9e6142996647303baaa24d3eb46
       // app.showPage(2, 2);
 //    $('.pre_luyin').addClass('ds-none');
 //    setTimeout(function() {
@@ -178,7 +186,10 @@ app.pages[2] = (function() {
           ajaxLoad();
           $('.share-entrance,.real-perfume').fadeIn(500).removeClass('ds-none');
           $('.slide-text,.slide-pointer').fadeIn(500).removeClass('ds-none');
+<<<<<<< HEAD
           $(".luyinDiv").hide();
+=======
+>>>>>>> c65faae30c4fa9e6142996647303baaa24d3eb46
           $('.listen-local').fadeIn(500);
           $(".head").attr('src', 'img/bg2.jpg');
         }
@@ -419,10 +430,14 @@ app.pages[2] = (function() {
       if (type == 'body') {
         $cont.append('<img src="img/flower1.png" alt="" class="flower1"><img src="img/flower2.png" alt="" class="flower2"><img src="img/flower3.png" alt="" class="flower3"><img src="img/flower4.png" alt="" class="flower4"><img src="img/flower2.png" alt="" class="flower5"><img src="img/body.jpg" alt="" class="body">')
       } else {
+<<<<<<< HEAD
       	var len = $(".body[src='img/root.jpg']").length;
       	if(len == 0) {
       		$cont.append('<img src="img/root.jpg" alt="" class="body">');
       	}
+=======
+        $cont.append('<img src="img/root.jpg" alt="" class="body">')
+>>>>>>> c65faae30c4fa9e6142996647303baaa24d3eb46
         interval = 2;
         length = 0;
       }

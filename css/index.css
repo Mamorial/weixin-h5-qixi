@@ -304,9 +304,15 @@ body {
 
 .luyin{
   display: block;
+<<<<<<< HEAD
   width: 50%;
   position: relative;
   margin: 20px auto;
+=======
+  width: 20%;
+  position: relative;
+  margin: 90px auto;
+>>>>>>> c65faae30c4fa9e6142996647303baaa24d3eb46
   /*-webkit-animation: luyinAni 3s infinite linear;
   animation: luyinAni 3s infinite linear;
   -webkit-transform-origin: 52% 48%;
@@ -319,7 +325,11 @@ body {
   transform-origin: 50% 50%;
 }
 .luyin2{
+<<<<<<< HEAD
 	width: 100%;
+=======
+	width: 35%;
+>>>>>>> c65faae30c4fa9e6142996647303baaa24d3eb46
 }
 
 .flower1 {
@@ -1152,6 +1162,7 @@ body {
 	font-weight: 600px;
 	letter-spacing: 10px;
 }
+<<<<<<< HEAD
 .voice-show{
 	width: 100%;
 	height: 120px;
@@ -1176,3 +1187,5 @@ body {
 	overflow: hidden;
 	/*border: 1px solid red;*/
 }
+=======
+>>>>>>> c65faae30c4fa9e6142996647303baaa24d3eb46

@@ -17,6 +17,7 @@ app.pages[1] = (function() {
       app.showDialog('share');
     });
 			//进入第二页
+<<<<<<< HEAD
 //  $('.confirm').click(function() {
 //    app.showPage(2, 1);
 ////    if (app.showPage(2, 3)) {
@@ -29,6 +30,12 @@ app.pages[1] = (function() {
 ////      };
 //    // $('.listen-local').fadeOut(500);
 //  });
+=======
+    $('.confirm').click(function() {
+      app.showPage(2, 1);
+      // $('.listen-local').fadeOut(500);
+    });
+>>>>>>> c65faae30c4fa9e6142996647303baaa24d3eb46
 
 //  $('.logo').click(function() {
 //    $('.c-logo').fadeOut(500);

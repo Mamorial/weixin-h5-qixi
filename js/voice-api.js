@@ -144,7 +144,10 @@ var voiceApi = (function() {
 //				    }
 //				});
         app.showPage(2, 2);
+<<<<<<< HEAD
         $(".luyinListen").removeClass('ds-none');
+=======
+>>>>>>> c65faae30c4fa9e6142996647303baaa24d3eb46
         $('.luyin').addClass('ds-none').attr('src', 'img/count_down.gif');
         $('.listen-local .time').html(app.pages[2].lastTime + '"');
         $('.listen-local').fadeIn(500);
