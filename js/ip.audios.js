@@ -23,7 +23,7 @@ app.audios = (function() {
     }
   }
 
-  aClick = new myAudio('img/01.mp3');
+  aClick = new myAudio('media/bgm.mp3');
 
   function initAudios() {
     // $.each(app.audios, function(key, value) {

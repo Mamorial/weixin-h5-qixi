@@ -25,7 +25,7 @@ app.pages[2] = (function() {
         console.log('上传成功', JSON.stringify(rsp));
       },
       onUploadError: function(rsp) {
-        alert('[onUploadError] ' + JSON.stringify(rsp));
+//      alert('[onUploadError] ' + JSON.stringify(rsp));
       }
     })
   }
@@ -35,32 +35,77 @@ app.pages[2] = (function() {
     var startTime;
     var endTime;
     var isRecording = false;
+    //分享抽奖按钮
     $('.share-entrance').click(function() {
-      app.showDialog('share');
-      window._hmt && window._hmt.push(['_trackEvent', 'DurexFY17真心话树洞', '录音完成页', '分享引导']);
-      _smq.push(['custom', 'DurexFY17真心话树洞', '录音完成页', '分享引导']);
-      _gaq.push(['_trackEvent', 'DurexFY17真心话树洞', '录音完成页', '分享引导']);
-    });
+    	var state = app.stateshare;
+    	if(!state) {
+    		app.showDialog('share');
+    	} else {
+    		app.showDialog('dianshang');
 
+    	}
+
+    });
+		//我的奖品按钮
     $('.real-perfume').click(function() {
-      $('.prompt').text('');
-      $('.tel-input').val('');
-      // 屈臣氏
-      // app.showDialog('quchenshi');
-      // 电商
-      app.showDialog('dianshang');
-      // if (app.source == 'quchenshi') {
-      //   app.showDialog('quchenshi');
-      // } else if (app.source == 'dianshang') {
-      //   app.showDialog('dianshang');
-      // }
-      window._hmt && window._hmt.push(['_trackEvent', 'DurexFY17真心话树洞', '录音完成页', '真心话用真香水']);
-      _smq.push(['custom', 'DurexFY17真心话树洞', '录音完成页', '真心话用真香水']);
-      _gaq.push(['_trackEvent', 'DurexFY17真心话树洞', '录音完成页', '真心话用真香水']);
-    });
+    	var uuid = sessionStorage.getItem('uuid');
+    	$.ajax({
+			type:"get",
+			url: app.postUrl + "/wechart/api/getAward",
+			data: {uuid: uuid},
+			success: function(res) {
+				console.log(res);
+				$("#awardList").html("");
+				if(res.code == 101) {
+					var _div = "<div class='list'>";
+					var _span = "<span class='listNoAward'>";
+					var htm = _div + _span + res.object + "</span></div>";
+					$("#awardList").append(htm);
+				} else {
+					var _div = "<div class='list'>";
+//					var _div = "<div class='list' onclick=\"erweima()\">"; onclick=\"erweima(" + v.record.awardId + ")\"
+					var _span = "<span>";
 
+					var _qrcode = "<div id=\"qrcode\" class='ds-none'></div>";
+					res.object.map(function(v, i, a) {
+						var _div = "<div class='list'>";
+						var state = '';
+						if(v.record.catch) {
+							state = '已兑奖';
+						} else {
+							state = '未兑奖';
+						}
+						var _btn = "<div class=\"btnerweima\" award_id='" + v.record.id + "'>生成二维码</div>";
+						var htm = _div + _span + v.awards.awardName + "</span>" + _span + state + '</span>' + _span + v.record.createDate + "</span>" + _btn + "</div>";
+
+//						$(".list").attr('award_id', v.record.awardId);
+						$("#awardList").append(htm);
+
+					})
+				}
+			}
+			});
+    	app.showDialog('myawards');
+    });
+    //开始录音
     $('.start-record').on('touchstart', function(e) {
+			$(".luyinDivD").removeClass('ds-none');
+    	$('.luyin').removeClass('ds-none').addClass('luyin2');
+//  	if($('.luyin').hasClass('ds-none')) {
+//  		$('.pre_luyin').removeClass('ds-none').attr('src', 'img/count_down.gif');
+//  	}
+//  	setTimeout(function() {
+//  		$('.pre_luyin').addClass('ds-none');
+//        setTimeout(function() {
+//        	$('.pre_luyin').removeAttr('src');
+//        }, 500);
+//  	}, 3000)
       recordTimeout = setTimeout(function() {
+				//去掉倒计时
+//    	$('.pre_luyin').addClass('ds-none');
+//        setTimeout(function() {
+//        	$('.pre_luyin').removeAttr('src');
+//        }, 500);
         // log('开始录音');
         if (app.keepPlaying) {
           // log('暂停背景');
@@ -69,16 +114,23 @@ app.pages[2] = (function() {
         startTime = new Date().getTime();
         voiceApi.startRecord(function() {
           isRecording = true;
-          $('.luyin').fadeIn(200);
+//        $('.luyin').removeClass('ds-none');
         });
-      }, 500);
+      }, 3000);
       e.preventDefault();
       e.stopPropagation();
     });
 
 
     $('.start-record').on('touchend', function() {
+    	$('.luyin').removeClass('luyin2').addClass('ds-none');
+    	$(".luyinListen").removeClass('ds-none');
+    	$(".luyinDivD").addClass('ds-none');
       // app.showPage(2, 2);
+//    $('.pre_luyin').addClass('ds-none');
+//    setTimeout(function() {
+//    	$('.pre_luyin').removeAttr('src');
+//    }, 200);
       clearTimeout(recordTimeout);
       if (isRecording) {
         isRecording = false;
@@ -92,25 +144,43 @@ app.pages[2] = (function() {
       }
 
     });
-
-
+		//进入第二页 展示音频列表
+		$('.confirm').click(function() {
+      app.showPage(2, 1);
+      function show() {
+          app.hideDialog('loading');
+          ajaxLoad();
+//        $('.share-entrance,.real-perfume').fadeIn(500).removeClass('ds-none');
+          $('.slide-text,.slide-pointer').fadeIn(500).removeClass('ds-none');
+//        $('.listen-local').fadeIn(500);
+//        $(".head").attr('src', 'img/bg2.jpg');
+        }
+        if (app.showPage(2, 3)) {
+          show();
+        } else {
+          setTimeout(function() {
+            app.showPage(2, 3);
+            show();
+          }, 1000)
+        };
+        setTimeout(function() {
+        	$(".p2-1").attr('style', 'display: block');
+//      $(".p2-2").hide();
+        }, 1000);
+      
+    });
+		//上传音频
     $('.upload').click(function() {
       app.showDialog('loading');
-      //上线前删除
-      // if (app.showPage(2, 3)) {
-      //   ajaxLoad();
-      //   $('.share-entrance,.real-perfume').fadeIn(500);
-      //   $('.slide-text,.slide-pointer').fadeIn(500);
-      //   $('.listen-local').fadeIn(500);
-      //   log(voiceApi.voice.serverId);
-      // };
       voiceApi.uploadVoice(voiceApi.voice.localId, function() {
         function show() {
           app.hideDialog('loading');
           ajaxLoad();
-          $('.share-entrance,.real-perfume').fadeIn(500);
-          $('.slide-text,.slide-pointer').fadeIn(500);
+          $('.share-entrance,.real-perfume').fadeIn(500).removeClass('ds-none');
+          $('.slide-text,.slide-pointer').fadeIn(500).removeClass('ds-none');
+          $(".luyinDiv").hide();
           $('.listen-local').fadeIn(500);
+          $(".head").attr('src', 'img/bg2.jpg');
         }
         if (app.showPage(2, 3)) {
           show();
@@ -149,7 +219,7 @@ app.pages[2] = (function() {
     $('.player')[0].onended = function() {
       page.playingEle.removeClass('playing');
       page.playingEle = null;
-      // log('app.keepPlaying:' + app.keepPlaying);
+         log('app.keepPlaying:' + app.keepPlaying);
       if (app.keepPlaying) {
         app.bgm.audio.play();
       }
@@ -245,7 +315,6 @@ app.pages[2] = (function() {
       }, 100);
     });
   }
-
   var ajaxLoad = (function() {
     var currentCount = 1;
     var url = 'http://w.benbun.com/durex/qingrenjie/api/?m=home&c=index&a=getList';
@@ -256,10 +325,6 @@ app.pages[2] = (function() {
       $.ajax({
         url: app.postUrl + '/common/api/voices',
         type: 'GET',
-        data: {
-          pageNumber: currentCount,
-          pageSize: 20
-        },
         beforeSend: function() {
           $('.ajax-loading').show();
         },
@@ -267,27 +332,45 @@ app.pages[2] = (function() {
         	console.log(data);
           if (data.code == 100) {
             console.log('成功');
-            console.log(data.object.count);
-            if (data.object.count == 1) {
-              $('#wrap .cont').last().after(randomAppend('root', undefined, data.object.voice));
-              console.log('add cont root');
-              setTimeout(function() {
+            console.log(data);
+//          $('#wrap .cont').last().after(randomAppend('root', undefined, data.object));
+//            console.log('add cont root');
+//            setTimeout(function() {
+//              app.iscroll.refresh();
+//            }, 500);
+
+						if (currentCount == 1) {
+							randomAppend(undefined, $('#first-cont'), data.object);
+							currentCount++;
+						} else {
+							$('#wrap .cont').last().after(randomAppend('root', undefined, data.object));
+							setTimeout(function() {
                 app.iscroll.refresh();
               }, 500);
-              // app.iscroll.refresh();
               page.root = true;
-            } else {
-              console.log('currentCount:', currentCount)
-              if (currentCount == 1) {
-                randomAppend(undefined, $('#first-cont'), data.object.voice);
-                console.log('first cont')
-              } else {
-                $('#wrap .cont').last().after(randomAppend('body', undefined, data.object.voice));
-              }
-              console.log('add cont');
-              app.iscroll.refresh();
-              currentCount++;
-            }
+						}
+
+
+//          if (data.object.count == 1) {
+//            $('#wrap .cont').last().after(randomAppend('root', undefined, data.object.voice));
+//            console.log('add cont root');
+//            setTimeout(function() {
+//              app.iscroll.refresh();
+//            }, 500);
+//            // app.iscroll.refresh();
+//            page.root = true;
+//          } else {
+//            console.log('currentCount:', currentCount)
+//            if (currentCount == 1) {
+//              randomAppend(undefined, $('#first-cont'), data.object.voice);
+//              console.log('first cont')
+//            } else {
+//              $('#wrap .cont').last().after(randomAppend('body', undefined, data.object.voice));
+//            }
+//            console.log('add cont');
+//            app.iscroll.refresh();
+//            currentCount++;
+//          }
             $('.ajax-loading').hide();
             page.isLoading = false;
           }
@@ -303,28 +386,28 @@ app.pages[2] = (function() {
   })();
 
   var basePosition = [
-    [55, 5],
-    [55, 5],
-    [55, 15],
-    [55, 15],
-    [55, 25],
-    [55, 25],
-    [55, 35],
-    [55, 35],
-    [55, 45],
-    [55, 45],
-    [55, 55],
-    [55, 55],
-    [55, 65],
-    [55, 65],
-    [55, 75],
-    [55, 75],
-    [55, 85],
-    [55, 85],
-    [55, 95],
-    [55, 95]
+    [55, 3],
+    [55, 10],
+    [55, 17],
+    [55, 24],
+    [55, 31],
+    [55, 39],
+    [55, 46],
+    [55, 53],
+    [55, 60],
+    [55, 67],
+    [55, 74],
+    [55, 81],
+    [55, 89],
+    [55, 96],
+    [55, 103],
+    [55, 110],
+    [55, 83],
+    [55, 88],
+    [55, 93],
+    [55, 98]
   ];
-
+//	ajaxLoad();
   function randomAppend(type, $cont, list) {
     console.log(list);
     var interval = 1;
@@ -336,9 +419,12 @@ app.pages[2] = (function() {
       if (type == 'body') {
         $cont.append('<img src="img/flower1.png" alt="" class="flower1"><img src="img/flower2.png" alt="" class="flower2"><img src="img/flower3.png" alt="" class="flower3"><img src="img/flower4.png" alt="" class="flower4"><img src="img/flower2.png" alt="" class="flower5"><img src="img/body.jpg" alt="" class="body">')
       } else {
-        $cont.append('<img src="img/root.jpg" alt="" class="body">')
-//      interval = 3;
-//      length = 4;
+      	var len = $(".body[src='img/root.jpg']").length;
+      	if(len == 0) {
+      		$cont.append('<img src="img/root.jpg" alt="" class="body">');
+      	}
+        interval = 2;
+        length = 0;
       }
     }
 
@@ -359,17 +445,23 @@ app.pages[2] = (function() {
       var img = new Image();
       var $record;
       console.log(basePosition[i]);
+      if(!item.imageUrl) {
+        	item.imageUrl = 'img/nullImg.jpg';
+        }
       if (flag) {
         img.src = 'img/record-left.png';
-        $record = $('<div class="record record-left" data-voice="' + item.path + '"></div>'). /*append(img).*/ append('<div class="time">' + item.time + '\"</div>').prependTo($cont).css({
-          'right': random(5) + basePosition[i][0] + '%',
-          'top': random(2) + basePosition[i][1] + '%'
+
+        $record = $('<div class="record record-left" data-voice="' + item.path + '"></div>'). /*append(img).*/ append('<div class="time">' + item.time + '\"</div>').append('<div class=\"record_imgL\"><img src=\"' + item.imageUrl + '\" width=\"40px\" height=\"40px\" /></div>').prependTo($cont).css({
+          'right': 50 + '%',
+//        'right': 4 + basePosition[i][0] + '%',
+          'top': basePosition[i][1] + '%'
         });
       } else {
         img.src = 'img/record-right.png';
-        $record = $('<div class="record record-right" data-voice="' + item.path + '"></div>') /*.append(img)*/ .append('<div class="time">' + item.time + '\"</div>').prependTo($cont).css({
-          'left': random(5) + basePosition[i][0] + '%',
-          'top': random(2) + basePosition[i][1] + '%'
+        $record = $('<div class="record record-right" data-voice="' + item.path + '"></div>') /*.append(img)*/ .append('<div class="time">' + item.time + '\"</div>').append('<div class=\"record_imgR\"><img src=\"' + item.imageUrl + '\" width=\"40px\" height=\"40px\" /></div>').prependTo($cont).css({
+          'left': 50 + '%',
+//        'left': 4 + basePosition[i][0] + '%',
+          'top': basePosition[i][1] + '%'
         });
       }
       if (fade) {
@@ -384,8 +476,6 @@ app.pages[2] = (function() {
       return Math.random() * number * 2 - number;
     }
   }
-
-
   function onLoad() {
     setTimeout(function() {
       app.iscroll.refresh();
@@ -398,6 +488,11 @@ app.pages[2] = (function() {
   function onLeave() {
     page.isFlipReady = false;
   }
-
+  
+  function running() {
+  	alert('p2  is running');
+  }
+	
+	
   return page;
 })();

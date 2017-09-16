@@ -73,8 +73,7 @@ $(function() {
       // 在manifest列表中定义加载序列
       manifest: [{
         id: 'p1',
-        selector: '.p1 img',
-        imgs: ['img/p1bg.jpg']
+        selector: '.p1 img'
       }],
 
 

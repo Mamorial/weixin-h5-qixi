@@ -22,7 +22,7 @@ window.wxshare = (function() {
     onCancel: null
   };
   var isReady = false;
-
+//	alert(isReady);
   function config(optsArg) {
     $.extend(opts, optsArg);
 //  alert('isReady=' + isReady);
@@ -35,16 +35,17 @@ window.wxshare = (function() {
     var wx = window.wx;
 
     wx.onMenuShareTimeline({
-      title: opts.timelineText || opts.desc,
-      link: opts.timelineLink || opts.link,
-      imgUrl: opts.timelineImgUrl || opts.imgUrl,
+      title: '我听到了,你心里的声音',
+      link: 'http://prod.didadiandan.com/prod1/',
+      imgUrl: 'http://prod.didadiandan.com/prod1/img/share.jpg',
       success: function() {
-        _smq.push(['custom', 'DurexFY17真心话树洞', '分享', '分享至朋友圈']);
-        _gaq.push(['_trackEvent', 'DurexFY17真心话树洞', '分享', '分享至朋友圈']);
+        _smq.push(['custom', '来福士五周年庆', '分享', '分享至朋友圈']);
+        _gaq.push(['_trackEvent', '来福士五周年庆', '分享', '分享至朋友圈']);
         window._hmt && window._hmt.push(['_trackEvent', 'wxshare', 'Timeline', '分享到朋友圈成功']);
         if (opts.onSuccess) {
           opts.onSuccess();
         }
+//      alert('分享成功');
       },
       cancel: function() {
         window._hmt && window._hmt.push(['_trackEvent', 'wxshare', 'Timeline', '分享到朋友圈取消']);
@@ -55,19 +56,21 @@ window.wxshare = (function() {
     });
 
     wx.onMenuShareAppMessage({
-      title: opts.friendTitle || opts.title,
-      desc: opts.friendDesc || opts.desc,
-      link: opts.friendLink || opts.link,
-      imgUrl: opts.friendImgUrl || opts.imgUrl,
+      title: '我听到了,你心里的声音',
+      desc: '相信五年后的你必然懂我现在的疯狂，故事就在这里，你要听吗？',
+      link: 'http://prod.didadiandan.com/prod1/',
+      imgUrl: 'http://prod.didadiandan.com/prod1/img/share.jpg',
       type: '', // 分享类型,music、video或link，不填默认为link
       dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
       success: function() {
-        _smq.push(['custom', 'DurexFY17真心话树洞', '分享', '分享给好友']);
-        _gaq.push(['_trackEvent', 'DurexFY17真心话树洞', '分享', '分享给好友']);
+        _smq.push(['custom', '来福士五周年庆', '分享', '分享给好友']);
+        _gaq.push(['_trackEvent', '来福士五周年庆', '分享', '分享给好友']);
         window._hmt && window._hmt.push(['_trackEvent', 'wxshare', 'AppMessage', '分享给好友成功']);
         if (opts.onSuccess) {
           opts.onSuccess();
         }
+//      alert('分享成功');
+        userState();
       },
       cancel: function() {
         window._hmt && window._hmt.push(['_trackEvent', 'wxshare', 'AppMessage', '分享给好友取消']);
@@ -81,6 +84,41 @@ window.wxshare = (function() {
     wx.onMenuShareWeibo(opts);
     wx.onMenuShareQZone(opts);
   }
+  //判断用户是否具有抽奖权限
+  function userState() {
+  	console.log('quanxina');
+  	var uuid = sessionStorage.getItem('uuid');
+  	app.stateshare = true;
+  	console.log(uuid);
+
+
+  	var shareBtn = $(".share-entrance").hasClass('ds-none');
+  	console.log("shareBtn=" + shareBtn);
+	  $.ajax({
+		type:"get",
+		url: app.postUrl + "/common/api/awards",
+		data: {uuid: uuid},
+		success: function(res) {
+			console.log(res);
+			if(res.code == 101 && !shareBtn) {
+				app.hideDialog('share');
+				app.showDialog('dianshang');
+
+
+//				app.hideDialog('share');
+//				app.showDialog('overtime');
+//				app.stateshare = false;
+//				$(".award_result").html('').html('你今日次数已用完，请明日再来!');
+			}
+
+			if(res.code == 100 && !shareBtn) {
+				app.hideDialog('share');
+				app.showDialog('dianshang');
+			}
+
+		}
+		});
+  }
 	//弹层授权
   function getSign() {
 //	alert('getsign');
@@ -91,22 +129,26 @@ window.wxshare = (function() {
 	var url_code = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="+appid+"&redirect_uri="+_url+"&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
 //	console.log(window.location.href);
   		code = GetQueryString('code', true);
-//			alert("code = " + code);
+			console.log("code = " + code);
 			if(!code) {
+				console.log('执行力');
 				window.open(url_code);
 				code = GetQueryString('code', true);
+				console.log('code=' + code);
 			}
-			alert(app.postUrl)
+//			alert(app.postUrl)
 
     $.ajax({
       type:"GET",
       url:  app.postUrl + "/wechart/api/code/" + code,
       success: function(rsp) {
       	app.user_uuid = rsp.object;
-      	console.log("uuid = " + rsp);
+      	console.log("uuid = " + rsp.object);
+      	console.log(rsp);
         if (rsp.code == 101) {
+        	window.location.href = url_code;
 //        alert(rsp.object);
-          window.open(url_code);
+//        window.open(url_code);
         } else if(rsp.code == 100) {
         	var obj = rsp.object;
         	sessionStorage.setItem('uuid', obj);
@@ -146,10 +188,12 @@ window.wxshare = (function() {
 	            'onMenuShareQQ',
 	            'onMenuShareWeibo',
 	            'onMenuShareQZone',
-	            'startRecord', 'stopRecord', 'onVoiceRecordEnd', 'playVoice', 'pauseVoice', 'stopVoice', 'onVoicePlayEnd', 'uploadVoice', 'downloadVoice'
+	            'startRecord', 'stopRecord', 'onVoiceRecordEnd', 'playVoice', 'pauseVoice', 'stopVoice', 'onVoicePlayEnd', 'uploadVoice', 'downloadVoice', 'scanQRCode', 'translateVoice'
 	          ]
 	        });
 	        wx.ready(function() {
+//	        	var globalAudio=document.getElementById("car_audio");
+//          	globalAudio.play();
 	          isReady = true;
 	          config(opts);
 	          opts.onReady && opts.onReady();

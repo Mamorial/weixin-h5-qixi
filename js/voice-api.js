@@ -19,7 +19,7 @@ var voiceApi = (function() {
 //if (window.location.host.indexOf('m.durex.com.cn') < 0) {
 //  url = 'api/?m=home&c=index&a=add';
 //}
-
+	//上传音频
   function addVoice(mediaId, callback) {
   	var uuid = sessionStorage.getItem('uuid');
 //	alert(mediaId);
@@ -35,6 +35,7 @@ var voiceApi = (function() {
       success: function(data) {
       	if(data.code == 101) {
       		alert(data.object);
+//    		sessionStorage.getItem('')
       	}
 //    	var state = sessionStorage.getItem('state');
 //    	console.log(state);
@@ -52,6 +53,7 @@ var voiceApi = (function() {
         // }
       },
       error: function(xhr, errorType, error) {
+
         // opts.onUploadError && opts.onUploadError('请求失败: ' + error);
       },
       complete: function() {}
@@ -80,7 +82,7 @@ var voiceApi = (function() {
       complete: function() {}
     });
   }
-
+	//上传音频
   function uploadVoice(localId, callback) {
   	console.log(localId);
     wx.uploadVoice({
@@ -97,7 +99,7 @@ var voiceApi = (function() {
       }
     });
   }
-
+	//开始录音
   function startRecord(callback) {
 //  console.log('[startRecord]');
     started = true;
@@ -106,6 +108,7 @@ var voiceApi = (function() {
       wx.startRecord({
         success: function() {
 //      	alert('录音成功')
+        	$('.luyin').attr('src', 'img/luyin.gif').removeClass('luyin2');
           callback && callback();
         },
         cancel: function() {
@@ -117,7 +120,7 @@ var voiceApi = (function() {
     // console.log('最长时间为(ms):',opts.maxRecordTimeMs);
     stopRecordId = setTimeout(stopRecord, opts.maxRecordTimeMs);
   }
-
+		//结束录音
   function stopRecord() {
     // log('[stopRecord] started:' + started + opts.isMock);
     if (!started) return;
@@ -133,10 +136,19 @@ var voiceApi = (function() {
         voice.localId = res.localId;
         // log('res:' + res);
         // log('localId:' + res.localId);
+//      wx.translateVoice({
+//				   localId: voice.localId, // 需要识别的音频的本地Id，由录音相关接口获得
+//				    isShowProgressTips: 1, // 默认为1，显示进度提示
+//				    success: function (res) {
+//				        alert(res.translateResult); // 语音识别的结果
+//				    }
+//				});
         app.showPage(2, 2);
-        $('.luyin').fadeOut(200);
+        $(".luyinListen").removeClass('ds-none');
+        $('.luyin').addClass('ds-none').attr('src', 'img/count_down.gif');
         $('.listen-local .time').html(app.pages[2].lastTime + '"');
         $('.listen-local').fadeIn(500);
+        
         // log('showPage 2-2');
         // uploadVoice(voice.localId);
       },
@@ -144,6 +156,8 @@ var voiceApi = (function() {
         // log('stopRecord fail' + JSON.stringify(res));
       }
     });
+
+
   }
 
   function init(argOpts) {

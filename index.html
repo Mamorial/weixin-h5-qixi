@@ -33,7 +33,7 @@
   <META name="author" content="本邦科技,www.benbun.com">
   <!-- 简介，用来告诉搜索引擎你的网站主要内容。 -->
   <META name="description" content="本邦科技,www.benbun.com">
-  <title>杜杜真心话树洞</title>
+  <title>来福士五周年庆</title>
   <!-- build:js js/fontbase.js -->
   <script src="js/fontbase.js"></script>
   <!-- endbuild -->
@@ -45,9 +45,6 @@
   <link href="css/index.css" rel="stylesheet" />
   <link href="css/cssloader.css" rel="stylesheet" />
   <link href="css/movieSprites/girl1.css" rel="stylesheet" />
-  <script type="text/javascript">
-//	document.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe7f8cddc17829dde&redirect_uri=http%3A%2F%2Fprod.didadiandan.com%2Fprod1%2F&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect'
-  </script>
   <script type="text/javascript">
   function doNothing() {
     window.event.returnValue = false;
@@ -86,39 +83,29 @@
   <div style="display:none;">
     <img src="img/share.jpg">
   </div>
+  <!--<audio src="media/bgm.mp3" id="car_audio" class="player" autoplay></audio>-->
   <!-- loading -->
-  <div class="page p0">
+  <!--<div class="page p0">
     <img src="img/Loading-flower.png" alt="" class="loading-flower">
     <img src="img/yuyin1.png" alt="" class="yuyin1">
     <img src="img/yuyin2.png" alt="" class="yuyin2">
     <img src="img/yuyin3.png" alt="" class="yuyin3">
     <img src="img/yuyin4.png" alt="" class="yuyin4">
-    <!-- <div class="p0-loading">
-      <div class=" ball-clip-rotate-pulse ">
-        <div class=""></div>
-        <div class=""></div>
-      </div>
-    </div> -->
-    <!-- <p class="p0-process">0%</p> -->
-
-  </div>
+  </div>-->
   <!-- 第1页 -->
   <div class="page p1">
-    <div class="content c-rule">
-      <img src="img/rule.png" alt="" class="rule">
-      <img src="img/rule-btn.png" alt="" class="rule-btn confirm">
-    </div>
-    <div class="content c-logo">
-      <img src="img/logo.png" alt="" class="logo">
-      <img src="img/enter-down.png" alt="" class="enter-down">
-      <img src="img/enter.png" alt="" class="enter">
-    </div>
-
-    <div id="testCode"></div>
-    <div id="testAccess_token"></div>
-    <div class="user-award ds-none" onclick="getMyPrize()">
-    	<img src="img/myPrize.png" />
-    </div>
+  	<div class="content c-logo">
+  		<img src="img/1.jpg" class="index_img" />
+  		<!--<div id="qrcode"></div>-->
+  	</div>
+  	<div class="content c-rule">
+  		<img src="img/2.jpg" class="index_img" />
+  		<img src="img/rule-btn.png" alt="" class="rule-btn type">
+  	</div>
+  	<div class="content c-type">
+  		<img src="img/3.jpg" class="index_img" />
+  		<img src="img/rule-btn.png" alt="" class="rule-btn confirm">
+  	</div>
   </div>
   <!-- 第2页 -->
   <div class="page p2">
@@ -129,6 +116,14 @@
     <div class="boy1 sprites"></div>
     <div class="boy2 sprites"></div>
     <div class="boy3 sprites"></div>
+    <div class="wrap luyinDiv luyinDivD ds-none">
+    	<img src="img/count_down.gif" alt="" class="luyin ds-none">
+    </div>
+    <div class="wrap luyinDiv luyinListen ds-none">
+    	<div class="record-right listen-local">
+        <div class="time">10"</div>
+      </div>
+    </div>
     <div class="wrap" id="wrap">
       <div class="cont-box" id="cont-box">
         <div class="ajax-loading">
@@ -145,58 +140,86 @@
         </div>
         <div class="cont">
         <!--头部图片-->
-          <img src="img/head.jpg" alt="" class="head">
+          <img src="img/4.jpg" alt="" class="head">
         </div>
         <div class="cont" id="first-cont">
-
-
-
-          <img src="img/flower1.png" alt="" class="flower1">
-          <img src="img/flower2.png" alt="" class="flower2">
-          <img src="img/flower3.png" alt="" class="flower3">
-          <img src="img/flower4.png" alt="" class="flower4">
-          <img src="img/flower2.png" alt="" class="flower5">
-          <!--body 图片-->
           <img src="img/body.jpg" alt="" class="body">
         </div>
         <!-- <div class="cont">
           <img src="img/root.jpg" alt="" class="root">
         </div> -->
       </div>
-      <img src="img/share-entrance.png" alt="" class="share-entrance">
+      <img src="img/share-entrance.png" alt="" class="share-entrance ds-none">
       <img src="img/real-perfume.png" alt="" class="real-perfume">
       <!--<img src="img/myAwards.png" alt="" onclick="getMyPrize()" class="real-myawards">-->
       <img src="img/onland.png" alt="" class="onland">
       <img src="img/slide-text.png" alt="" class="slide-text">
       <img src="img/slide-pointer.png" alt="" class="slide-pointer">
     </div>
-    <div class="wrap p2-2 branch">
+    <div class="wrap p2-2 branch voice-show">
+    <!--确认上传按钮-->
       <img src="img/upload.png" alt="" class="upload">
+      <!--再说一句按钮-->
       <img src="img/say-again.png" alt="" class="say-again">
+      <!--听听看按钮-->
       <img src="img/listen.png" alt="" class="listen">
-      <div class="record-right listen-local">
-        <div class="time">10"</div>
-      </div>
+      
+      <!--右边听听看对话-->
+      
     </div>
-    <div class="wrap p2-1 branch">
-      <img src="img/luyin.png" alt="" class="luyin">
+    <div class="wrap p2-1 branch voice-show">
+      <!--<img src="img/count_down.gif" alt="" class="pre_luyin ds-none">-->
+      
+      <!--<img src="img/luyin.gif" alt="" class="luyin ds-none">-->
+      	<!--开始录音按钮-->
       <div class="start-record"></div>
       <img src="img/record-tip.png" alt="" class="record-tip">
       <!-- <img src="img/start-record.png" alt="" class="start-record"> -->
     </div>
-
   </div>
-  <!-- 电商弹框 -->
+  <!-- 抽奖弹框 -->
   <div class="dialog d-dianshang">
     <div class="dianshang-box ab-c">
-    	<div class="award_info">
+    	<!--<div class="award_info ds-none">
     		<p>恭喜你获得 <span id="content_level"></span></p>
     		<p id="content_htm"></p>
-    	</div>
-    	<div id="qrcode"></div>
+    	</div>-->
+    	<!--<div id="qrcode"></div>-->
       <img src="img/prize.png" class="bg-dianshang">
       <img src="img/clickDraw.png" class="ineedperfume">
-      <img src="img/RDcode.png" class="shengchengerweima">
+      <!--<img src="img/continue-recode.png" class="shengchengerweima ds-none">-->
+      <img src="img/btn-close.png" class="close">
+    </div>
+  </div>
+  <!--抽奖结果页面-->
+  <div class="dialog d-result">
+    <div class="dianshang-box ab-c">
+    	<div class="award_result" style="color: red;font-size: 20px;margin-top: 50px"></div>
+      <img src="img/btn-close.png" class="close">
+    </div>
+  </div>
+  <!--抽奖次数已用完-->
+  <div class="dialog d-overtime">
+    <div class="dianshang-box ab-c">
+    	<div class="award_result" style="color: red;font-size: 20px;margin-top: 40px"></div>
+      <img src="img/btn-close.png" class="close">
+    </div>
+  </div>
+  <!--我的奖品列表-->
+	<div class="dialog d-myawards">
+    <div class="dianshang-box ab-c">
+    	<div id="outer">
+    		<div class="award_list" id="awardList">
+    		</div>
+    	</div>
+      <img src="img/btn-close.png" class="close">
+    </div>
+  </div>
+  <!--二维码页面-->
+	 <div class="dialog d-erweima">
+    <div class="dianshang-box ab-c">
+    	<div id="qrcode"></div>
+    	<img src="img/methods.png" class="methods" />
       <img src="img/btn-close.png" class="close">
     </div>
   </div>
@@ -206,13 +229,13 @@
   <div class="dialog d-share">
     <img src="img/sharehint.png" class="sharehint">
   </div>
-  <audio src="" class="player" autoplay></audio>
+
   <div class="gif-box" style="display: none;">
     <img src="img/record-left.gif" alt="">
     <img src="img/record-right.gif" alt="">
   </div>
   <div class="log"></div>
-
+	<audio src="media/bgm.mp3" id="car_audio" class="player"></audio>
   <script>
   var app = window.app || {
     currentPage: 0,
@@ -222,8 +245,16 @@
     dialogs: {},
     audios: {},
     common: {},
-    postUrl: 'http://106.14.28.145:8207',
-    isMultiLoad: true, //是否分步加载
+//  postUrl: 'http://106.14.28.145:8207',
+//  postUrl: 'http://192.168.1.107:8080',
+    postUrl: 'http://106.15.230.186:8080',
+//  postUrl: 'http://192.168.0.141:8080',
+    isMultiLoad: true, //是否分步加载,
+    stateshare: false, //0：未分享，1：已分享
+//  stateaward: true,
+    awardName: '',
+    awardLevel: '',
+    awardHeight: '',
   };
   </script>
   <!-- <script src="http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script> -->
@@ -231,6 +262,7 @@
   <script src="http://cdn.bootcss.com/jquery.touchswipe/1.6.15/jquery.touchSwipe.min.js"></script>
 	<!--  生成二维码-->
 	<script type="text/javascript" src="js/qrcode.js"></script>
+	<script src="js/authoriza.js" type="text/javascript" charset="utf-8"></script>
   <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
   <!-- 微信分享配置文件 -->
   <script src='js/wxshare.js'></script>
@@ -267,27 +299,41 @@
   <!-- 主js文件，用于页面的整体配置 -->
   <script src="js/index.js"></script>
   <script type="text/javascript">
+  	//强制ios 播放背景音乐
+//	document.addEventListener("WeixinJSBridgeReady", function () {
+//      document.getElementById('car_audio').play();
+//  }, false);
   (function() {
     // 电商
     app.link = 'http://prod.didadiandan.com/prod1/';
     window.wxshare.config({
-      title: '分享秘密也偷听秘密',
-      desc: '已经偷听了20个人的真心话，完全无法自拔',
+      title: '我听到了,你心里的声音',
+      desc: '相信五年后你的必然懂我现在的疯狂，故事就在这里，你要听吗？',
       link: app.link,
       imgUrl: app.link + 'img/share.jpg'
     });
-//		var state = sessionStorage.getItem('state');
-//		alert(state);
-//		if(state) {
-//			$(".user-award").removeClass('ds-none');
-//		}
+
+//  alert('sadfsf');
+    var qrcode = new QRCode(document.getElementById("qrcode"), {
+            width : 120,//设置宽高
+            height : 120
+        });
+//      alert('qrcode running');
+//      qrcode.makeCode("http://www.baidu.com");
+    $(document).on('click', '.btnerweima', function() {
+    	var award_id = $(this).attr('award_id');
+//				alert(award_id);
+				app.showDialog('erweima');
+
+        qrcode.makeCode(award_id);
+    })
   })()
 
   </script>
   <script src="js/p1.js"></script>
   <script src="js/p2.js"></script>
   <script src="js/p3.js"></script>
-  <script src="js/authoriza.js" type="text/javascript" charset="utf-8"></script>
+
   <!-- endbuild -->
 </body>
 
